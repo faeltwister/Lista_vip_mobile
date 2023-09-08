@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnSalvar;
     Button btnFinalizar;
 
+    SharedPreferences.Editor listavip;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         pessoaController = new PessoaController();
 
         preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        SharedPreferences.Editor listavip = preferences.edit();
+        listavip = preferences.edit();
 
         pessoa.setPrimeiroNome(preferences.getString("PrimeiroNome",""));
         pessoa.setSobreNome(preferences.getString("SobreNome",""));
@@ -79,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
             editSobrenome.setText("");
             editCurso.setText("");
             editTelefone.setText("");
+            listavip.clear();
+            listavip.apply();
         });
 
         btnFinalizar.setOnClickListener(view -> {
