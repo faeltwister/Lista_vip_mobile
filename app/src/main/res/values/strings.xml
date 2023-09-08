@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lista de curso</string>
+    <string name="txt_label_main">Aplicativo de Lista VIP</string>
+    <string name="txt_btnLimpar_main">Limpar</string>
+    <string name="txt_btnSalvar_main">Salvar</string>
+    <string name="txt_btnFinalizar_main">Finalizar</string>
+    <string name="txt_tel_main">Telefone</string>
+    <string name="txt_curso_main">Curso</string>
+    <string name="txt_sobrenome_main">Sobrenome</string>
+    <string name="txt_nome_main">Nome</string>
+</resources>
