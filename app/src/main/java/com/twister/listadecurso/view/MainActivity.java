@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar= findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        //atribuir ao set
+        //atribuir ao setText os gets da classe pessoa
 
         editPrimeironome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
