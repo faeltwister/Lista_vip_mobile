@@ -1,6 +1,9 @@
 package com.twister.listadecurso.view;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.twister.listadecurso.R;
 import com.twister.listadecurso.model.Pessoa;
 
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
 
     //devemos usar o import do Edit e button para atribuir as variaveis
+    //aprendendo android studio
     EditText editPrimeironome;
     EditText editSobrenome;
     EditText editCurso;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //nomes
+
         editPrimeironome = findViewById(R.id.txtPrimeiroNome);
         editSobrenome = findViewById(R.id.txtSobrenone);
         editCurso = findViewById(R.id.txtCurso);
@@ -37,17 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
         //botões
         btnLimpar = findViewById(R.id.btnLimpar);
-        btnSalvar= findViewById(R.id.btnSalvar);
+        btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        //atribuir ao set
+        //atribuir ao setText o get da classe pessoa
 
         editPrimeironome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
         editCurso.setText(pessoa.getCursoDesejado());
         editTelefone.setText(pessoa.getTelefoneContato());
 
-
+        //botão de limpar
         btnLimpar.setOnClickListener(view -> {
             editPrimeironome.setText("");
             editSobrenome.setText("");
@@ -55,18 +60,20 @@ public class MainActivity extends AppCompatActivity {
             editTelefone.setText("");
         });
 
+        //botão de finalizar
+
         btnFinalizar.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Volte Sempre", Toast.LENGTH_LONG).show();
             finish();
         });
-
+        //botão de salvar
         btnSalvar.setOnClickListener(view -> {
             pessoa.setPrimeiroNome(editPrimeironome.getText().toString());
             pessoa.setSobreNome(editSobrenome.getText().toString());
             pessoa.setCursoDesejado(editCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefone.getText().toString());
 
-            Toast.makeText(MainActivity.this,"Salvo com sucesso! " + pessoa.getPrimeiroNome(),Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Salvo com sucesso! " + pessoa.getPrimeiroNome(), Toast.LENGTH_LONG).show();
         });
 
     }
