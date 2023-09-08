@@ -9,7 +9,6 @@ import com.twister.listadecurso.model.Pessoa;
 
 //devemos importar os botoes e textos
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
 
     //devemos usar o import do Edit e button para atribuir as variaveis
-    //aprendendo android studio
+
     EditText editPrimeironome;
     EditText editSobrenome;
     EditText editCurso;
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         editTelefone = findViewById(R.id.txtTelefone);
 
         //botões
+
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         editTelefone.setText(pessoa.getTelefoneContato());
 
         //botão de limpar
+
         btnLimpar.setOnClickListener(view -> {
             editPrimeironome.setText("");
             editSobrenome.setText("");
@@ -66,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Volte Sempre", Toast.LENGTH_LONG).show();
             finish();
         });
+
         //botão de salvar
+
         btnSalvar.setOnClickListener(view -> {
             pessoa.setPrimeiroNome(editPrimeironome.getText().toString());
             pessoa.setSobreNome(editSobrenome.getText().toString());
