@@ -1,5 +1,7 @@
 package com.twister.listadecurso.view;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.twister.listadecurso.R;
 import com.twister.listadecurso.controller.PessoaController;
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa = new Pessoa();
     PessoaController pessoaController;
 
+    SharedPreferences preferences ;
+    public static final String  NOME_PREFERENCES = "pref_listavip";
+
     //devemos usar o import do Edit e button para atribuir as variaveis
     EditText editPrimeironome;
     EditText editSobrenome;
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoaController = new PessoaController();
+
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listavip = preferences.edit();
+
 
         //nomes
         editPrimeironome = findViewById(R.id.txtPrimeiroNome);
@@ -72,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setCursoDesejado(editCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefone.getText().toString());
 
+            listavip.putString("PrimeiroNome",pessoa.getPrimeiroNome());
+            listavip.putString("SobreNome",pessoa.getSobreNome());
+            listavip.putString("TelefoneContato",pessoa.getTelefoneContato());
+            listavip.putString("CursoDesejado",pessoa.getCursoDesejado());
+            listavip.apply();
             Toast.makeText(MainActivity.this,"Salvo com sucesso! " + pessoa.getPrimeiroNome(),Toast.LENGTH_LONG).show();
             pessoaController.salvar(pessoa);
         });
