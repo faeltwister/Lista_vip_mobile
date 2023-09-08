@@ -43,12 +43,23 @@ public class MainActivity extends AppCompatActivity {
         preferences = getSharedPreferences(NOME_PREFERENCES,0);
         SharedPreferences.Editor listavip = preferences.edit();
 
+        pessoa.setPrimeiroNome(preferences.getString("PrimeiroNome",""));
+        pessoa.setSobreNome(preferences.getString("SobreNome",""));
+        pessoa.setCursoDesejado(preferences.getString("CursoDesejado",""));
+        pessoa.setTelefoneContato(preferences.getString("TelefoneContato",""));
+
+
 
         //nomes
         editPrimeironome = findViewById(R.id.txtPrimeiroNome);
         editSobrenome = findViewById(R.id.txtSobrenone);
         editCurso = findViewById(R.id.txtCurso);
         editTelefone = findViewById(R.id.txtTelefone);
+
+        editPrimeironome.setText(pessoa.getPrimeiroNome());
+        editSobrenome.setText(pessoa.getSobreNome());
+        editCurso.setText(pessoa.getCursoDesejado());
+        editTelefone.setText(pessoa.getTelefoneContato());
 
         //botões
         btnLimpar = findViewById(R.id.btnLimpar);
