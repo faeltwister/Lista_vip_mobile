@@ -2,6 +2,7 @@ package com.twister.listadecurso.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.twister.listadecurso.R;
+import com.twister.listadecurso.controller.PessoaController;
 import com.twister.listadecurso.model.Pessoa;
 
 //devemos importar os botoes e textos
@@ -12,7 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+
     Pessoa pessoa = new Pessoa();
+    PessoaController pessoaController;
 
     //devemos usar o import do Edit e button para atribuir as variaveis
     EditText editPrimeironome;
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pessoaController = new PessoaController();
 
         //nomes
         editPrimeironome = findViewById(R.id.txtPrimeiroNome);
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setTelefoneContato(editTelefone.getText().toString());
 
             Toast.makeText(MainActivity.this,"Salvo com sucesso! " + pessoa.getPrimeiroNome(),Toast.LENGTH_LONG).show();
+            pessoaController.salvar(pessoa);
         });
 
     }
